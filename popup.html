@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>KGP_ERP</title>
+  <link rel="stylesheet" href="ui.css">
+  <style>
+    body { width: 360px; padding: 14px; display: grid; gap: 12px; }
+    #login { width: 100%; padding: 11px; font-size: 15px; }
+    .stack { margin: 0; display: grid; gap: 10px; }
+    .stack dt { color: var(--muted); font-size: 12px; }
+    .stack dd { margin: 0; font-weight: 500; overflow-wrap: anywhere; }
+    footer { display: flex; justify-content: space-between; }
+  </style>
+</head>
+<body>
+  <div class="brand">
+    <img src="icons/icon-48.png" alt="">
+    <h1>KGP_ERP</h1>
+    <span class="ver" id="version"></span>
+  </div>
+
+  <div class="card">
+    <dl class="stack">
+      <div><dt>Roll number</dt><dd id="roll">—</dd></div>
+      <div><dt>Gmail</dt><dd id="gmail">—</dd></div>
+      <div><dt>Last login</dt><dd id="last">—</dd></div>
+    </dl>
+  </div>
+
+  <button id="login" class="primary">Log in to ERP</button>
+
+  <div class="card">
+    <label class="toggle">
+      <span>Log in automatically when ERP opens</span>
+      <input type="checkbox" id="auto">
+    </label>
+  </div>
+
+  <footer class="small">
+    <button class="link" id="settings">Settings</button>
+    <span class="muted">Data stays on this computer</span>
+  </footer>
+
+  <script src="shared.js"></script>
+  <script src="popup.js"></script>
+</body>
+</html>

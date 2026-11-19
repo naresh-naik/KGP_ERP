@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "KGP_ERP",
+  "version": "1.0.0",
+  "description": "One-click and automatic login for IIT Kharagpur ERP, with the email OTP fetched from your Gmail.",
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA0q04UqcpjXOCjosYLDG9Q0nKuEA70FQrgnANCSzqgC6QONCUafT+jixlMQBQsHHOfHeRyt1tmt34rakJ7dCcdOkWPuny6EMl+QCy6bfXoG8HXyUgsR3rpBpWiJbr+XgOqauK8plZg35ZKiX3lMJ2DFDBIN1FzmwFihu45SN0+y5MZvzXpA4BMNYmIm5LE2/A7b6Db1nxt1hJQMVVuF2j7B6Swf6eoURjzkC9QK4/nwxLwFalsj3EHIWD4XFFeQC86Mfs4ICHrPIrs7XUwGpW6aFSAYUjSqCvF2BBX8qrNG+ccoQTKfcNYk0Bv3v9CgpjC7F2jcOLGHYnacVx3JcQswIDAQAB",
+  "icons": {
+    "16": "icons/icon-16.png",
+    "32": "icons/icon-32.png",
+    "48": "icons/icon-48.png",
+    "128": "icons/icon-128.png"
+  },
+  "permissions": ["storage", "identity"],
+  "host_permissions": [
+    "https://erp.iitkgp.ac.in/*",
+    "https://mail.google.com/*",
+    "https://gmail.googleapis.com/*"
+  ],
+  "background": { "service_worker": "background.js" },
+  "action": {
+    "default_title": "KGP_ERP",
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "icons/icon-16.png",
+      "32": "icons/icon-32.png",
+      "48": "icons/icon-48.png"
+    }
+  },
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "content_scripts": [
+    {
+      "matches": ["https://erp.iitkgp.ac.in/*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "oauth2": {
+    "client_id": "YOUR_CLIENT_ID.apps.googleusercontent.com",
+    "scopes": ["https://www.googleapis.com/auth/gmail.readonly"]
+  }
+}
